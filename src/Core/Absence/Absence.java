@@ -26,6 +26,12 @@ public class Absence
     }
 
     @Override
+    public String toString()
+    {
+        return date.toString() + " - " + absenceType;
+    }
+
+    @Override
     public boolean equals(Object o)
     {
         if (this == o) return true;

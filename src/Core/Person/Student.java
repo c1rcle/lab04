@@ -49,6 +49,12 @@ public class Student
         return surname;
     }
 
+    @Override
+    public String toString()
+    {
+        return name + " " + surname;
+    }
+
     public ObservableList<Grade> getGrades()
     {
         return grades;

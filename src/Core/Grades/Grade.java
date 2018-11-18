@@ -25,6 +25,12 @@ public class Grade
     }
 
     @Override
+    public String toString()
+    {
+        return subject + " - " + grade;
+    }
+
+    @Override
     public boolean equals(Object o)
     {
         if (this == o) return true;

@@ -1,8 +1,5 @@
 package UI.Cells;
 
-import Core.Absence.Absence;
-import Core.Grades.Grade;
-import Core.Person.Student;
 import javafx.scene.control.ListCell;
 
 public class GenericCell<T> extends ListCell<T>
@@ -17,12 +14,7 @@ public class GenericCell<T> extends ListCell<T>
 
         if (item != null)
         {
-            if (item instanceof Student) name = (index + 1) + ". "
-                    + ((Student)item).getName() + " " + ((Student)item).getSurname();
-            else if (item instanceof Grade) name = (index + 1) + ". "
-                    + ((Grade)item).getSubject() + " - " + ((Grade)item).getGrade();
-            else if (item instanceof Absence) name = (index + 1) + ". "
-                    + ((Absence)item).getDate().toString() + " - " + ((Absence)item).getAbsenceType();
+            name = (index + 1) + ". " + item.toString();
         }
 
         this.setText(name);
