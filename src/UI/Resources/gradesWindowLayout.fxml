@@ -43,12 +43,12 @@
          <GridPane.margin>
             <Insets />
          </GridPane.margin></TextField>
-      <ComboBox fx:id="gradesSubjectComboBox" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="224.0" GridPane.rowIndex="3" />
+      <ComboBox fx:id="gradesSubjectComboBox" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="224.0" promptText="Nazwy przedmiotów" GridPane.rowIndex="3" />
       <Button fx:id="gradesAddSubjectButton" mnemonicParsing="false" onAction="#addSubjectPressed" prefHeight="30.0" prefWidth="60.0" text="Dodaj" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets />
          </GridPane.margin></Button>
-      <Button fx:id="gradesRemoveSubjectButton" disable="true" mnemonicParsing="false" onAction="#removeSubjectPressed" prefHeight="30.0" prefWidth="60.0" text="Usuń" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+      <Button fx:id="gradesRemoveSubjectButton" mnemonicParsing="false" onAction="#removeSubjectPressed" prefHeight="30.0" prefWidth="60.0" text="Usuń" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
       <Label text="Ocena:" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets />

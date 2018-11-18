@@ -57,18 +57,19 @@ public class AbsenceWindowController implements Initializable
     private ChangeListener<Student> studentChangeListener = (observable, oldValue, newValue) ->
     {
         Student student = absenceStudentList.getSelectionModel().getSelectedItem();
-        absenceAbsenceList.setItems(student.getAbsences());
-        absenceAbsenceList.setCellFactory(new GenericFactory<>());
-        absenceAddButton.setDisable(false);
+        if (student != null)
+        {
+            absenceAbsenceList.setItems(student.getAbsences());
+            absenceAbsenceList.setCellFactory(new GenericFactory<>());
+            absenceAddButton.setDisable(false);
 
-        absenceAbsenceList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        absenceAbsenceList.getSelectionModel().selectedItemProperty().addListener((x)
-                -> absenceRemoveButton.setDisable(false));
+            absenceAbsenceList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+            absenceAbsenceList.getSelectionModel().selectedItemProperty().addListener((x)
+                    -> absenceRemoveButton.setDisable(false));
 
-        absenceAbsenceList.getItems().addListener((ListChangeListener<Absence>) x
-                -> { if (absenceAbsenceList.getItems().size() == 0) absenceRemoveButton.setDisable(true); });
-
-        if (absenceStudentList.getSelectionModel().getSelectedItem() == null) absenceAddButton.setDisable(true);
+            absenceAbsenceList.getItems().addListener((ListChangeListener<Absence>) x
+                    -> { if (absenceAbsenceList.getItems().size() == 0) absenceRemoveButton.setDisable(true); });
+        }
     };
 
     public void addButtonPressed()
