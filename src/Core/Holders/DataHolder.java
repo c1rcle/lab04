@@ -16,6 +16,7 @@ public class DataHolder
         DatabaseLoad load = new DatabaseLoad();
         studentList = load.loadStudentsData();
         subjectList = load.loadSubjectsData();
+        load.dispose();
     }
 
     public static void save()
@@ -23,6 +24,7 @@ public class DataHolder
         DatabaseSave save = new DatabaseSave();
         save.saveStudentsData(studentList);
         save.saveSubjectsData(subjectList);
+        save.dispose();
     }
 
     public static ObservableList<Student> getStudentList()

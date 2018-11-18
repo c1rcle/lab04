@@ -16,6 +16,18 @@ public class DatabaseSave
         connection = DatabaseConnection.connect();
     }
 
+    public void dispose()
+    {
+        try
+        {
+            connection.close();
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public void saveStudentsData(List<Student> studentList)
     {
         deleteFromTable("Students");

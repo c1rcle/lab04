@@ -20,6 +20,18 @@ public class DatabaseLoad
         connection = DatabaseConnection.connect();
     }
 
+    public void dispose()
+    {
+        try
+        {
+            connection.close();
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public ObservableList<Student> loadStudentsData()
     {
         ObservableList<Student> studentList = FXCollections.observableArrayList();
