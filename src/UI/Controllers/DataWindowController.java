@@ -42,7 +42,8 @@ public class DataWindowController implements Initializable
     {
         dataBarChart.getData().clear();
         XYChart.Series<String, Float> studentSeries = new XYChart.Series<>();
-        studentSeries.getData().add(new XYChart.Data<>("Uczeń", calculateArithmeticMean()));
+        studentSeries.getData().add(new XYChart.Data<>("Uczeń",
+                calculateArithmeticMean(dataStudentList.getSelectionModel().getSelectedItem())));
         studentSeries.getData().add(new XYChart.Data<>("Klasa", calculateClassArithmeticMean()));
         dataBarChart.getData().add(studentSeries);
         for (XYChart.Series<String, Float> series : dataBarChart.getData())
@@ -56,9 +57,8 @@ public class DataWindowController implements Initializable
         }
     }
 
-    private float calculateArithmeticMean()
+    private float calculateArithmeticMean(Student selectedStudent)
     {
-        Student selectedStudent = dataStudentList.getSelectionModel().getSelectedItem();
         int summation = 0;
         for (Grade grade : selectedStudent.getGrades())
         {
@@ -70,15 +70,7 @@ public class DataWindowController implements Initializable
     private float calculateClassArithmeticMean()
     {
         float summation = 0;
-        for (Student student : dataStudentList.getItems())
-        {
-            int studentSummation = 0;
-            for (Grade grade : student.getGrades())
-            {
-                studentSummation += Integer.parseInt(grade.getGrade());
-            }
-            summation += student.getGrades().size() > 0 ? (float) studentSummation / student.getGrades().size() : 0;
-        }
+        for (Student student : dataStudentList.getItems()) summation += calculateArithmeticMean(student);
         return summation / dataStudentList.getItems().size();
     }
 }
