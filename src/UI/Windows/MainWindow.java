@@ -26,7 +26,6 @@ public class MainWindow extends Application
     {
         Region root = FXMLLoader.load(getClass().getResource("/UI/Resources/mainWindowLayout.fxml"));
         primaryStage.setTitle("Dziennik");
-        //Scene scene = new Scene(root, 640, 480);
         UndecoratorScene.setClassicDecoration();
         UndecoratorScene scene = new UndecoratorScene(primaryStage, root);
         scene.lookup("#StageMenu").setVisible(false);
@@ -34,7 +33,6 @@ public class MainWindow extends Application
 
         scene.getStylesheets().add(getClass().getResource("/UI/Resources/Styles/modena_dark.css").toExternalForm());
         primaryStage.setScene(scene);
-        //primaryStage.setResizable(false);
         primaryStage.getIcons().add(new Image("/UI/Resources/Drawable/icon.png"));
         primaryStage.setHeight(640);
         primaryStage.show();
