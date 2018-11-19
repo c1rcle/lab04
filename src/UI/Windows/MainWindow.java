@@ -1,13 +1,18 @@
 package UI.Windows;
 
 import Core.Holders.DataHolder;
+import UI.Alerts.CustomAlert;
+import insidefx.undecorator.UndecoratorScene;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -19,11 +24,19 @@ public class MainWindow extends Application
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        Parent root = FXMLLoader.load(getClass().getResource("/UI/Resources/mainWindowLayout.fxml"));
+        Region root = FXMLLoader.load(getClass().getResource("/UI/Resources/mainWindowLayout.fxml"));
         primaryStage.setTitle("Dziennik");
-        primaryStage.setScene(new Scene(root, 640, 480));
-        primaryStage.setResizable(false);
+        //Scene scene = new Scene(root, 640, 480);
+        UndecoratorScene.setClassicDecoration();
+        UndecoratorScene scene = new UndecoratorScene(primaryStage, root);
+        scene.lookup("#StageMenu").setVisible(false);
+        scene.lookup(".decoration-button-fullscreen").setVisible(false);
+
+        scene.getStylesheets().add(getClass().getResource("/UI/Resources/Styles/modena_dark.css").toExternalForm());
+        primaryStage.setScene(scene);
+        //primaryStage.setResizable(false);
         primaryStage.getIcons().add(new Image("/UI/Resources/Drawable/icon.png"));
+        primaryStage.setHeight(640);
         primaryStage.show();
 
         DataHolder.initialize();
@@ -34,11 +47,10 @@ public class MainWindow extends Application
     {
         super.stop();
 
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Alert alert = new CustomAlert(Alert.AlertType.CONFIRMATION).getAlert();
         alert.setTitle("Wybór");
         alert.setHeaderText("Zapisanie danych");
         alert.setContentText("Czy chcesz zapisać dane?");
-        alert.initStyle(StageStyle.TRANSPARENT);
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.orElse(null) == ButtonType.OK) DataHolder.save();

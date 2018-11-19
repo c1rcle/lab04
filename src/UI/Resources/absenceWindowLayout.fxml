@@ -54,7 +54,7 @@
             <Insets />
          </GridPane.margin>
       </ListView>
-      <Button fx:id="absenceRemoveButton" disable="true" mnemonicParsing="false" onAction="#removeButtonPressed" prefHeight="30.0" prefWidth="60.0" text="Usuń" GridPane.columnIndex="2" GridPane.rowIndex="1">
+      <Button fx:id="absenceRemoveButton" disable="true" mnemonicParsing="false" onAction="#removeButtonPressed" prefHeight="30.0" prefWidth="60.0" text="Usuń" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets />
          </GridPane.margin></Button>

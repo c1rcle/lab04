@@ -3,6 +3,7 @@ package UI.Controllers;
 import Core.Holders.DataHolder;
 import Core.Grades.Grade;
 import Core.Person.Student;
+import UI.Alerts.CustomAlert;
 import UI.Cells.Factories.GenericFactory;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -138,11 +139,10 @@ public class GradesWindowController implements Initializable
 
     private void showAlertWarning()
     {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
+        Alert alert = new CustomAlert(Alert.AlertType.WARNING).getAlert();
         alert.setTitle("Błąd");
         alert.setHeaderText("Niedozwolona operacja");
         alert.setContentText("Wymagane pole nie zostało wypełnione lub taki przedmiot już został wpisany!");
-        alert.initStyle(StageStyle.UTILITY);
         alert.showAndWait();
     }
 }

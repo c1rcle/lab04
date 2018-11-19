@@ -25,12 +25,12 @@
             <Insets />
          </opaqueInsets>
          <BorderPane.margin>
-            <Insets />
+            <Insets top="40.0" />
          </BorderPane.margin>
       </MenuBar>
    </top>
    <center>
-      <Label text="Aby rozpocząć wybierz opcję z menu!" textFill="#00000098" BorderPane.alignment="CENTER">
+      <Label text="Aby rozpocząć wybierz opcję z menu!" BorderPane.alignment="CENTER">
          <font>
             <Font size="14.0" />
          </font>

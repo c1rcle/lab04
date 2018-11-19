@@ -44,7 +44,7 @@
             <Insets />
          </GridPane.margin></TextField>
       <ComboBox fx:id="gradesSubjectComboBox" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="224.0" promptText="Nazwy przedmiotów" GridPane.rowIndex="3" />
-      <Button fx:id="gradesAddSubjectButton" mnemonicParsing="false" onAction="#addSubjectPressed" prefHeight="30.0" prefWidth="60.0" text="Dodaj" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <Button fx:id="gradesAddSubjectButton" mnemonicParsing="false" onAction="#addSubjectPressed" prefHeight="30.0" prefWidth="60.0" text="Dodaj" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets />
          </GridPane.margin></Button>

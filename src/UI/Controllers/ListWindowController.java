@@ -2,6 +2,7 @@ package UI.Controllers;
 
 import Core.Holders.DataHolder;
 import Core.Person.Student;
+import UI.Alerts.CustomAlert;
 import UI.Cells.Factories.GenericFactory;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
@@ -72,11 +73,10 @@ public class ListWindowController implements Initializable
 
     private void showAlertWarning()
     {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
+        Alert alert = new CustomAlert(Alert.AlertType.WARNING).getAlert();
         alert.setTitle("Błąd");
         alert.setHeaderText("Niedozwolona operacja");
         alert.setContentText("Sprawdź czy wymagane pole zostały wypełnione!");
-        alert.initStyle(StageStyle.UTILITY);
         alert.showAndWait();
     }
 }
